@@ -3,7 +3,7 @@ const handleSignin = (req, res, postgres, bcrypt) => {
 	//const password = req.body.passwd;
 	const {email, passwd} = req.body;
 	if(!email || !passwd) {
-		return res.status(400).json('inccorrect form submission');
+		return res.status(400).json('incorrect form submission');
 	}
 	postgres.select('email', 'hash').from('login')
 		.where('email', '=', req.body.email)
